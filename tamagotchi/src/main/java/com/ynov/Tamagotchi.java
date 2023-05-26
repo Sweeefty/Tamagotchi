@@ -17,6 +17,7 @@ public Tamagotchi () {
     happinessMax = 50;
     state = "Oeuf";
     this.isSick = false;
+    this.badEnvironment = false;
     }
 
     public void UnitTime() {
@@ -90,6 +91,11 @@ public Tamagotchi () {
             System.out.println("Le Tamagotchi ne veut plus jouer pour l'instant.");
             System.out.println("Vous avez joué 3 fois, vous pourrez jouer à nouveau au prochain tour.");
         } 
+    }
+
+    public void clean() {
+        badEnvironment = false;
+        System.out.println("L'environnement du Tamagotchi est propre.");
     }
 }
 
