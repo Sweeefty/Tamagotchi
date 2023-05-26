@@ -24,6 +24,9 @@ public Tamagotchi () {
             }
             nbPlay++;
             System.out.println("Il est content");
+        }else if (nbPlay >= 3) {
+            System.out.println("Le Tamagotchi ne veut plus jouer pour l'instant.");
+            System.out.println("Vous avez joué 3 fois, vous pourrez jouer à nouveau au prochain tour.");
         } 
     }
 }
