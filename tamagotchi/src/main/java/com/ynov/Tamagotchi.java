@@ -9,6 +9,7 @@ public class Tamagotchi {
     private int nbEat = 0;
     private boolean isSick;
 	private boolean badEnvironment;
+	private boolean noHungry = false;
 
 public Tamagotchi () {
     age = 0;
