@@ -14,4 +14,17 @@ public Tamagotchi () {
     happinessMax = 50;
     state = "Oeuf";
     }
+
+    public void play() {
+        if (nbPlay < 3) {
+            if (happiness + 3 <= happinessMax) {
+                happiness += 3;
+            } else {
+                happiness = happinessMax;
+            }
+            nbPlay++;
+            System.out.println("Il est content");
+        } 
+    }
 }
+
