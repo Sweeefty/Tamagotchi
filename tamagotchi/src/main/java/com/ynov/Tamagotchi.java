@@ -61,6 +61,7 @@ public Tamagotchi () {
             }
     }
 	public void Hungry() {
+		noHungry = false;
         if (nbEat < 1) {
             if (happiness + 5 <= happinessMax) {
                 happiness += 5; 
