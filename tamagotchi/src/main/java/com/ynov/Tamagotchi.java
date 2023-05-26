@@ -8,6 +8,7 @@ public class Tamagotchi {
     private int nbPlay = 0;
     private int nbEat = 0;
     private boolean isSick;
+	private boolean badEnvironment;
 
 public Tamagotchi () {
     age = 0;
@@ -57,6 +58,21 @@ public Tamagotchi () {
                 state = "Oeuf";
                 System.out.println("Le Tamagotchi est mort de vieillesse.");
             }
+    }
+	public void Hungry() {
+        if (nbEat < 1) {
+            if (happiness + 5 <= happinessMax) {
+                happiness += 5; 
+            } else {
+                happiness = happinessMax; 
+            }
+            nbEat++; 
+            badEnvironment = true; 
+            System.out.println("Le Tamagotchi a mangé !");
+        } else if (nbEat >= 1) {
+            System.out.println("Le Tamagotchi est rassasié.");
+            System.out.println("Votre Tamagotchi pourra mangé plus tard.");
+        }
     }
 
     public void play() {
