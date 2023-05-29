@@ -8,6 +8,8 @@ public class Tamagotchi {
     private int nbPlay = 0;
     private int nbEat = 0;
     private boolean isSick;
+    private boolean firstDayWithoutEating;
+    private boolean dirtyEnvironment;
 
 public Tamagotchi () {
     age = 0;
@@ -15,6 +17,8 @@ public Tamagotchi () {
     happinessMax = 50;
     state = "Oeuf";
     this.isSick = false;
+    this.firstDayWithoutEating = true;
+    this.dirtyEnvironment = false;
     }
 
     public void UnitTime() {
@@ -72,6 +76,23 @@ public Tamagotchi () {
             System.out.println("Le Tamagotchi ne veut plus jouer pour l'instant.");
             System.out.println("Vous avez joué 3 fois, vous pourrez jouer à nouveau au prochain tour.");
         } 
+    }
+
+    public void feed() {
+        firstDayWithoutEating = false;
+        if (nbEat < 1) {
+            if (happiness + 5 <= happinessMax) {
+                happiness += 5;
+            } else {
+                happiness = happinessMax;
+            }
+            nbEat++;
+            dirtyEnvironment = true;
+            System.out.println("Le Tamagotchi a mangé !");
+        } else if (nbEat >= 1) {
+            System.out.println("Le Tamagotchi ne veut plus manger pour l'instant.");
+            System.out.println("Votre Tamagotchi a déjà mangé, il pourra manger au prochain tour.");
+        }
     }
 }
 
