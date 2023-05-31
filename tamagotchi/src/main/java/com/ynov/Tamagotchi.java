@@ -61,22 +61,6 @@ public Tamagotchi () {
                 System.out.println("Le Tamagotchi est mort de vieillesse.");
             }
     }
-	public void Hungry() {
-		noHungry = false;
-        if (nbEat < 1) {
-            if (happiness + 5 <= happinessMax) {
-                happiness += 5; 
-            } else {
-                happiness = happinessMax; 
-            }
-            nbEat++; 
-            badEnvironment = true; 
-            System.out.println("Le Tamagotchi a mangé !");
-        } else if (nbEat >= 1) {
-            System.out.println("Le Tamagotchi est rassasié.");
-            System.out.println("Votre Tamagotchi pourra mangé plus tard.");
-        }
-    }
 
     public void play() {
         if (nbPlay < 3) {
