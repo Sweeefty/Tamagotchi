@@ -9,7 +9,7 @@ public class Tamagotchi {
     private int nbEat = 0;
     private boolean isSick;
     private boolean firstDayWithoutEating;
-    private boolean dirtyEnvironment;
+    private boolean badEnvironment;
 
 public Tamagotchi () {
     age = 0;
@@ -17,8 +17,7 @@ public Tamagotchi () {
     happinessMax = 50;
     state = "Oeuf";
     this.isSick = false;
-    this.firstDayWithoutEating = true;
-    this.dirtyEnvironment = false;
+    this.badEnvironment = false;
     }
 
     public void UnitTime() {
@@ -87,12 +86,16 @@ public Tamagotchi () {
                 happiness = happinessMax;
             }
             nbEat++;
-            dirtyEnvironment = true;
+            badEnvironment = true;
             System.out.println("Le Tamagotchi a mangé !");
         } else if (nbEat >= 1) {
             System.out.println("Le Tamagotchi ne veut plus manger pour l'instant.");
             System.out.println("Votre Tamagotchi a déjà mangé, il pourra manger au prochain tour.");
         }
+    }
+    public void clean() {
+        badEnvironment = false;
+        System.out.println("L'environnement du Tamagotchi est propre.");
     }
 }
 
