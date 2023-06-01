@@ -11,7 +11,9 @@ public class Tamagotchi {
     private int nbEat = 0;
     private boolean isSick;
     private boolean firstDayWithoutEating;
-    private boolean badEnvironment;
+    private boolean secondDayWithoutEating;
+    private boolean thirdDayWithoutEating;
+    private boolean dirtyEnvironment;
 
 public Tamagotchi () {
     age = 0;
@@ -19,7 +21,10 @@ public Tamagotchi () {
     happinessMax = 50;
     state = "Oeuf";
     this.isSick = false;
-    this.badEnvironment = false;
+    this.firstDayWithoutEating = true;
+    this.secondDayWithoutEating = true;
+    this.thirdDayWithoutEating = true;
+    this.dirtyEnvironment = false;
     }
 
     public void UnitTime() {
@@ -55,12 +60,45 @@ public Tamagotchi () {
                 state = "Oeuf";
                 System.out.println("Le Tamagotchi est mort de malade.");
             }
-            }
+        }
+            
             if (age >= 20) {
                 age = 0;
                 happiness = 15;
                 state = "Oeuf";
                 System.out.println("Le Tamagotchi est mort de vieillesse.");
+            }
+            if (nbEat == 0 && age >= 1) {
+                int pointsDeBonheurPerdus = 5;
+    
+                if (firstDayWithoutEating) {
+                    pointsDeBonheurPerdus = 5;
+                    firstDayWithoutEating = false;
+                } else if (secondDayWithoutEating) {
+                    pointsDeBonheurPerdus = 10;
+                    secondDayWithoutEating = false;
+                } else if (thirdDayWithoutEating) {
+                    pointsDeBonheurPerdus = 15;
+                    thirdDayWithoutEating = false;
+                }
+    
+                happiness -= pointsDeBonheurPerdus;
+                System.out.println("Le Tamagotchi a perdu " + pointsDeBonheurPerdus + " points de bonheur car il n'a pas mangé.");
+            } else {
+                if (dirtyEnvironment) {
+                    happiness -= 3;
+                }
+                nbEat = 0;
+                firstDayWithoutEating = true;
+                secondDayWithoutEating = true;
+                thirdDayWithoutEating = true;
+            }
+    
+            if (happiness <= 0) {
+                age = 0;
+                happiness = 15;
+                state = "Oeuf";
+                System.out.println("Le Tamagotchi est mort de tristesse.");
             }
     }
 
@@ -88,7 +126,7 @@ public Tamagotchi () {
                 happiness = happinessMax;
             }
             nbEat++;
-            badEnvironment = true;
+            dirtyEnvironment = true;
             System.out.println("Le Tamagotchi a mangé !");
         } else if (nbEat >= 1) {
             System.out.println("Le Tamagotchi ne veut plus manger pour l'instant.");
@@ -96,7 +134,7 @@ public Tamagotchi () {
         }
     }
     public void clean() {
-        badEnvironment = false;
+        dirtyEnvironment = false;
         System.out.println("L'environnement du Tamagotchi est propre.");
     }
 
