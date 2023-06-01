@@ -97,5 +97,13 @@ public Tamagotchi () {
         badEnvironment = false;
         System.out.println("L'environnement du Tamagotchi est propre.");
     }
+
+	public void main (String[] args) {
+		Tamagotchi tamagotchi = new Tamagotchi();
+		tamagotchi.UnitTime();
+		tamagotchi.play();
+		tamagotchi.feed();
+		tamagotchi.clean();
+	}
 }
 
