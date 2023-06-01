@@ -1,5 +1,7 @@
 package com.ynov;
 
+import java.util.Scanner;
+
 public class Tamagotchi {
     int age;
     int happiness;
@@ -98,6 +100,11 @@ public Tamagotchi () {
         System.out.println("L'environnement du Tamagotchi est propre.");
     }
 
+    public void heal() {
+        isSick = false;
+        System.out.println("Le Tamagotchi est guéri !");
+    }
+
 	public static void main(String[] args) {
 		Tamagotchi tamagotchi = new Tamagotchi();
         try (Scanner scanner = new Scanner(System.in)) {
@@ -113,12 +120,37 @@ public Tamagotchi () {
                 System.out.println("2 : Nourrir le Tamagotchi");
                 System.out.println("3 : Jouer avec le Tamagotchi");
                 System.out.println("4 : Nettoyer l'environnement du Tamagotchi");
+                System.out.println("5 : Soigner le Tamagotchi");
                 System.out.println("6 : Quitter");
-                int choix = scanner.nextInt();
+                int choice = scanner.nextInt();
                 scanner.nextLine();
+
+                switch (choice) {
+                    case 1:
+                        tamagotchi.UnitTime();
+                        break;
+                    case 2:
+                        tamagotchi.feed();
+                        break;
+                    case 3:
+                        tamagotchi.play();
+                        break;
+                    case 4:
+                        tamagotchi.clean();
+                        break;
+                    case 5:
+                        tamagotchi.heal();
+                        break;
+                    case 6:
+                        continuer = false;
+                        break;
+                    default:
+                        System.out.println("Choix invalide !");
+                        break;
+                }
             }
 		}
-
-	}
+    }
+}
        
 
