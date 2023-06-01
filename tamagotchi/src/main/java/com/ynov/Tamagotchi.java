@@ -98,12 +98,27 @@ public Tamagotchi () {
         System.out.println("L'environnement du Tamagotchi est propre.");
     }
 
-	public void main (String[] args) {
+	public static void main(String[] args) {
 		Tamagotchi tamagotchi = new Tamagotchi();
-		tamagotchi.UnitTime();
-		tamagotchi.play();
-		tamagotchi.feed();
-		tamagotchi.clean();
+        try (Scanner scanner = new Scanner(System.in)) {
+            boolean continuer = true;
+
+            while (continuer) {
+                System.out.println("Le Tamagotchi est " + tamagotchi.isSick + ".");
+                System.out.println("Le Tamagotchi est un " + tamagotchi.state + ".");
+                System.out.println("Le Tamagotchi a " + tamagotchi.age + " ans.");
+                System.out.println("Le Tamagotchi a " + tamagotchi.happiness + " de bonheur.");
+                System.out.println("Que voulez-vous faire ?");
+                System.out.println("1 : Passer une unité de temps");
+                System.out.println("2 : Nourrir le Tamagotchi");
+                System.out.println("3 : Jouer avec le Tamagotchi");
+                System.out.println("4 : Nettoyer l'environnement du Tamagotchi");
+                System.out.println("6 : Quitter");
+                int choix = scanner.nextInt();
+                scanner.nextLine();
+            }
+		}
+
 	}
-}
+       
 
