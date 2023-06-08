@@ -9,7 +9,7 @@ public class Tamagotchi {
     String state;
     private int nbPlay = 0;
     private int nbEat = 0;
-    private boolean isSick;
+    boolean isSick;
     private boolean firstDayWithoutEating;
     private boolean secondDayWithoutEating;
     private boolean thirdDayWithoutEating;
@@ -149,7 +149,7 @@ public Tamagotchi () {
             boolean continuer = true;
 
             while (continuer) {
-                System.out.println("Le Tamagotchi est " + tamagotchi.isSick + ".");
+                System.out.println("Le Tamagotchi est malade ? : " + tamagotchi.isSick + ".");
                 System.out.println("Le Tamagotchi est un " + tamagotchi.state + ".");
                 System.out.println("Le Tamagotchi a " + tamagotchi.age + " ans.");
                 System.out.println("Le Tamagotchi a " + tamagotchi.happiness + " de bonheur.");
